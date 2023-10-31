@@ -2,47 +2,73 @@
 layout: default
 ---
 
+<style>
+  #h-card-container {
+      display: flex;
+      padding-bottom: 40px;
+  }
+
+  .img {
+      flex: 30%;
+      padding-right: 30px;
+  }
+
+  .about {
+      flex: 50%;
+      align-self: center;
+  }
+</style>
+
+<div id="h-card-container" class="h-card">
+  <div class="img">
+    <img src="https://avatars.githubusercontent.com/u/32842562?v=4" class="u-photo" alt="My GitHub profile photo" style="border-radius: 100%;">
+  </div>
+  <div class="about">
+    I'm <a href="http://www.aferrero.boo" class="u-uid u-url p-name">Álvaro Ferrero</a>, a <span class="p-role">Computer Engineering student</span> from <span class="p-country-name">Spain</span> in love with open source, electronics and with an obsession about using GitHub as a social network. In this place you will not find anything useful, only tears and very stupid things.
+  </div>
+</div>
+
 <div class="posts">
   {% for post in paginator.posts %}
-    <article class="post">
-      <a href="{{ site.baseurl }}{{ post.url }}">
-        <h1>{{ post.title }}</h1>
+  <article class="post">
+    <a href="{{ site.baseurl }}{{ post.url }}">
+      <h1>{{ post.title }}</h1>
 
-        <div>
-          <p class="post_date">{{ post.date | date: "%B %e, %Y" }}</p>
-        </div>
-      </a>
-      <div class="entry">
-        {{ post.excerpt }}
+      <div>
+        <p class="post_date">{{ post.date | date: "%B %e, %Y" }}</p>
       </div>
+    </a>
+    <div class="entry">
+      {{ post.excerpt }}
+    </div>
 
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-    </article>
+    <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+  </article>
   {% endfor %}
 
   <!-- pagination -->
   {% if paginator.total_pages > 1 %}
   <div class="pagination">
     {% if paginator.previous_page %}
-      <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
+    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
     {% else %}
-      <span>&laquo; Prev</span>
+    <span>&laquo; Prev</span>
     {% endif %}
 
     {% for page in (1..paginator.total_pages) %}
-      {% if page == paginator.page %}
-        <span class="webjeda">{{ page }}</span>
-      {% elsif page == 1 %}
-        <a href="{{ '/' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
-      {% else %}
-        <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
-      {% endif %}
+    {% if page == paginator.page %}
+    <span class="webjeda">{{ page }}</span>
+    {% elsif page == 1 %}
+    <a href="{{ '/' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
+    {% else %}
+    <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+    {% endif %}
     {% endfor %}
 
     {% if paginator.next_page %}
-      <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
+    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
     {% else %}
-      <span>Next &raquo;</span>
+    <span>Next &raquo;</span>
     {% endif %}
   </div>
   {% endif %}
