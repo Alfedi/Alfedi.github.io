@@ -2,15 +2,15 @@
 layout: default
 ---
 
-<article class="post detailed">
-  <h1>{{ page.title }}</h1>
+<article class="post detailed h-entry">
+  <h1 class="p-name">{{ page.title }}</h1>
 
   <div>
-    <p class="author_title">{{site.author}}  ·  {{ page.date | date: "%B %e, %Y" }}</p>
+    <p class="author_title"><span class="p-author">{{site.author}}</span>  ·  <span class="dt-published">{{ page.date | date: "%B %e, %Y" }}</span></p>
     {% if page.last_modified_at %}
-    <p class="author_title" datetime="{{ page.last_modified_at | date_to_xmlschema }}">(Updated: {{ page.last_modified_at | date: "%b %-d, %Y" }})</p>
+    <p class="author_title" datetime="{{ page.last_modified_at | date_to_xmlschema }}" class="dt-updated">(Updated: {{ page.last_modified_at | date: "%b %-d, %Y" }})</p>
     {% endif %}
-    <div class="post-tags">
+    <div class="post-tags p-category">
       {% if post %}
         {% assign categories = post.categories %}
       {% else %}
@@ -23,7 +23,7 @@ layout: default
     </div>
   </div>
     
-  <div class="entry">
+  <div class="entry e-content">
     {{ content }}
   </div>
 

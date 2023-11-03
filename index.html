@@ -31,21 +31,21 @@ layout: default
   </div>
 </div>
 
-<div class="posts">
+<div class="posts h-feed">
   {% for post in paginator.posts %}
-  <article class="post">
-    <a href="{{ site.baseurl }}{{ post.url }}">
-      <h1>{{ post.title }}</h1>
+  <article class="post h-entry">
+    <a href="{{ site.baseurl }}{{ post.url }}" class="u-url">
+      <h1 class="p-name">{{ post.title }}</h1>
 
       <div>
-        <p class="post_date">{{ post.date | date: "%B %e, %Y" }}</p>
+        <p class="post_date dt-published">{{ post.date | date: "%B %e, %Y" }}</p>
       </div>
     </a>
-    <div class="entry">
+    <div class="entry p-summary">
       {{ post.excerpt }}
     </div>
 
-    <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+    <a href="{{ site.baseurl }}{{ post.url }}" class="read-more u-url">Read More</a>
   </article>
   {% endfor %}
 
