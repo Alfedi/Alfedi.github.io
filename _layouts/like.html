@@ -1,0 +1,22 @@
+---
+layout: default
+---
+
+<link href="{{ site.url }}" rel="author">
+<article class="post detailed h-entry">
+  <p class="author_title"><span class="p-author">{{site.author}}</span>  ·  <span class="dt-published">{{ page.date | date: "%B %e, %Y" }}</span></p>
+  <div class="post-tags">
+    <a href="{{site.baseurl}}/categories/#like" class="p-category">Like</a>
+  </div>
+
+  <div class="entry e-content">
+    <div class="h-cite u-like-of">
+      <pre>
+        Liked this post:
+
+                  <a class="u-url" href="{{ page.liked }}">{{ page.liked }}</a>
+      </pre>
+<!--like -->
+    </div>
+  </div>
+</article>

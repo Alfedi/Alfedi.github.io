@@ -1,0 +1,21 @@
+---
+layout: default
+---
+
+<link href="{{ site.url }}" rel="author">
+<article class="post detailed h-entry">
+  <p class="author_title"><span class="p-author">{{site.author}}</span>  ·  <span class="dt-published">{{ page.date | date: "%B %e, %Y" }}</span></p>
+  <div class="post-tags">
+    <a href="{{site.baseurl}}/categories/#repost" class="p-category">Repost</a>
+  </div>
+
+  <div class="entry e-content">
+    <div class="h-cite u-repost-of">
+      <pre>
+        Reposted:
+
+                  <a class="u-url" href="{{ page.reposted }}">{{ page.reposted }}</a>
+      </pre>
+    </div>
+  </div>
+</article>
