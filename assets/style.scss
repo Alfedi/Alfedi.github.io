@@ -191,7 +191,7 @@ ul, ol {
 }
 
 ul {
-  list-style-type: disc;
+  list-style-type: "";
 }
 
 ol {
@@ -1137,6 +1137,64 @@ Modules - reusable parts of our design
     -o-transform: translateX(0);
     transform: translateX(0);
   }
+}
+
+// Comments section
+
+hr {
+    margin-top: 5em;
+    margin-bottom: 1em;
+    color: #f1f1f1;
+}
+
+.likes {
+    display: flex;
+    margin-left: 1em;
+    align-items: center;
+}
+
+.vertical-likes {
+    display: block;
+    margin-bottom: 9px;
+    margin-right: 5px;
+}
+
+.comment-author {
+    display: flex;
+    flex-direction: row;
+    font-size: 10pt;
+    padding-right: 30px;
+}
+
+.likes-photo {
+    margin-right: 2px;
+}
+.comment-author-image {
+    margin-right: 10px;
+}
+
+.comment-author-name {
+    margin-right: 10px;
+}
+
+.comment-date {
+    color: #939aa1;
+}
+
+.comment {
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-name-date {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+.comment-text {
+    font-size: 11pt;
+    margin-top: -15px;
 }
 
 

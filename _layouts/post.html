@@ -6,34 +6,82 @@ layout: default
 <article class="post detailed h-entry">
   <h1 class="p-name"><a href="{{ page.url }}" class="u-url">{{ page.title }}</a></h1>
   <div>
-    <p class="author_title"><span class="p-author">{{site.author}}</span>  ·  <span class="dt-published">{{ page.date | date: "%B %e, %Y" }}</span></p>
+    <p class="author_title"><span>{{site.author}}</span>  ·  <span class="dt-published">{{ page.date | date: "%B %e, %Y" }}</span></p>
     {% if page.last_modified_at %}
     <p class="author_title" datetime="{{ page.last_modified_at | date_to_xmlschema }}" class="dt-updated">(Updated: {{ page.last_modified_at | date: "%b %-d, %Y" }})</p>
     {% endif %}
     <div class="post-tags">
       {% if post %}
-        {% assign categories = post.categories %}
+      {% assign categories = post.categories %}
       {% else %}
-        {% assign categories = page.categories %}
+      {% assign categories = page.categories %}
       {% endif %}
       {% for category in categories %}
-        <a href="{{site.baseurl}}/categories/#{{category|slugize}}" class="p-category">{{category}}</a>
-        {% unless forloop.last %}&nbsp;{% endunless %}
+      <a href="{{site.baseurl}}/categories/#{{category|slugize}}" class="p-category">{{category}}</a>
+      {% unless forloop.last %}&nbsp;{% endunless %}
       {% endfor %}
     </div>
   </div>
-    
+
   <div class="entry e-content">
     {{ content }}
   </div>
 
-  <div>
-    <p><span class="share-box">Share:</span> <a href="http://twitter.com/share?text={{ page.title }}&url={{site.url}}{{page.url}}" target="_blank">Twitter</a></p>
-  </div>
+  <!-- <div> -->
+    <!--   <p><span class="share-box">Share:</span> <a href="http://twitter.com/share?text={{ page.title }}&url={{site.url}}{{page.url}}" target="_blank">Twitter</a></p> -->
+    <!-- </div> -->
 
   <!--<div class="date">
-    Written on {{ page.date | date: "%B %e, %Y" }}
-  </div>-->
+      Written on {{ page.date | date: "%B %e, %Y" }}
+      </div>-->
 
-  {% include disqus.html %}
+  <!-- {% include disqus.html %} -->
+  <!-- Webmentions zone -->
+  {% capture filename %}{{ page.url | remove: "/"}}{% endcapture %}
+  {% assign webmentions = site.data.webmentions[filename] %}
+  <hr>
+
+
+
+    <div class="p-like h-cite likes">
+      <span class="vertical-likes">❤️</span>
+      {% for comment in webmentions %}
+      {% if comment["wm-property"] == "like-of" %}
+      <a class="u-url" href="{{ comment["wm-source"] }}">
+          <img class="p-author h-card u-photo likes-photo" src="{{ comment["author"]["photo"] }}" alt="{{ comment["author"]["url"] }}" width=48>
+        </a>
+      {% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="p-like h-cite likes">
+      <span class="vertical-likes">🔁️</span>
+      {% for comment in webmentions %}
+      {% if comment["wm-property"] == "repost-of" %}
+      <a class="u-url" href="{{ comment["wm-source"] }}">
+          <img class="p-author h-card u-photo likes-photo" src="{{ comment["author"]["photo"] }}" alt="{{ comment["author"]["url"] }}" width=48>
+      </a>
+      {% endif %}
+      {% endfor %}
+    </div>
+
+    <ul>
+    {% for comment in webmentions %}
+    {% if comment["wm-property"] == "in-reply-to" %}
+    <li class="p-comment h-cite">
+      <div class="p-author h-card comment-author">
+        <img class="u-photo comment-author-image" src="{{ comment["author"]["photo"] }}" width=48 height=48>
+        <div class="comment">
+          <div class="comment-name-date">
+            <a class="p-name u-url comment-author-name" href="{{ comment["author"]["url"] }}"> {{ comment["author"]["name"] }} </a>
+            <a class="u-url comment-date" href="{{ comment["wm-source"] }}">
+              <time class="dt-published" datetime="{{ comment["published"] }}">{{ comment["published"] | date: "%a, %B %d %Y - %H:%M"}}</time>
+            </a>
+          </div>
+          <div class="p-content comment-text">{{ comment["content"]["html"] }}</div>
+        </div>
+    </li>
+    {% endif %}
+    {% endfor %}
+  </ul>
 </article>
