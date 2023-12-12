@@ -94,6 +94,18 @@ include: ['_pages']
 paginate: 6
 paginate_path: /page:num/
 
+defaults:
+  -
+    scope:
+      path: "_posts/*like*.md"
+    values:
+      title: ""
+  -
+    scope:
+      path: "_posts/*repost*.md"
+    values:
+      title: ""
+
 # Exclude these files from your production _site
 exclude:
   - Gemfile
