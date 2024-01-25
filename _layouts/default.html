@@ -9,8 +9,6 @@
     <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
     <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
 
-    <link rel="webmention" href="https://webmention.io/www.aferrero.boo/webmention" />
-    <link rel="pingback" href="https://webmention.io/www.aferrero.boo/xmlrpc" />
     <link rel="authorization_endpoint" href="https://indieauth.com/auth">
     <link rel="token_endpoint" href="https://tokens.indieauth.com/token">
 
@@ -19,6 +17,7 @@
     <meta name="theme-color" content="#000000">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ site.baseurl }}/images/favicon-32x32.png">
     {% include analytics_head.html %}
+    {% webmentions_head %}
   </head>
 
   <body>
@@ -58,7 +57,6 @@
         </div>
       </div>
     </div>
-
-    {% include analytics.html %}
+    {% webmentions_js %}
   </body>
 </html>

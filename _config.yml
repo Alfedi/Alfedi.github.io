@@ -15,6 +15,11 @@ description: Don't take me seriously
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
 avatar: /images/logo.png
 
+webmentions:
+  username: www.aferrero.boo
+  cache_folder: .cache
+  cache_bad_uris_for: 5
+
 #
 # Flags below are optional
 #

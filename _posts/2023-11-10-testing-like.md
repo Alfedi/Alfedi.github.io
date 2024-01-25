@@ -1,4 +1,6 @@
 ---
 layout: like
-liked: https://www.aferrero.boo/why-did-i-do-this/
+categories: like
+title: ""
 ---
+❤️ https://www.aferrero.boo/why-did-i-do-this/
