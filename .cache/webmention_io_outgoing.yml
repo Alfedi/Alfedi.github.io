@@ -1,0 +1,29 @@
+---
+http://www.aferrero.boo/why-did-i-do-this/:
+  https://contributors.scala-lang.org/t/politics-safety-and-the-future-of-scala/5317: 1
+  https://indieweb.org/:
+    status: queued
+    summary: Webmention was queued for processing
+    location: https://webmention.io/indiewebcamp/webmention/viW817tGhUmxsmXhlbKu
+    source: http://www.aferrero.boo/why-did-i-do-this/
+    target: https://indieweb.org/
+  https://indieweb.org/POSSE:
+    status: queued
+    summary: Webmention was queued for processing
+    location: https://webmention.io/indiewebcamp/webmention/mR7gwJKBlph3vRdbWKAe
+    source: http://www.aferrero.boo/why-did-i-do-this/
+    target: https://indieweb.org/POSSE
+http://www.aferrero.boo/testing-like/:
+  https://www.aferrero.boo/why-did-i-do-this/:
+    status: queued
+    summary: Webmention was queued for processing
+    location: https://webmention.io/www.aferrero.boo/webmention/hfiYtt8qOTaiZdU54Iz7
+    source: http://www.aferrero.boo/testing-like/
+    target: https://www.aferrero.boo/why-did-i-do-this/
+http://www.aferrero.boo/testing-repost/:
+  https://www.aferrero.boo/why-did-i-do-this/:
+    status: queued
+    summary: Webmention was queued for processing
+    location: https://webmention.io/www.aferrero.boo/webmention/5UgkcCmW70UV1HE90KYw
+    source: http://www.aferrero.boo/testing-repost/
+    target: https://www.aferrero.boo/why-did-i-do-this/
